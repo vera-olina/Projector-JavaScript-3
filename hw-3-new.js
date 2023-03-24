@@ -1,23 +1,23 @@
 //Task 1
-function durationBetweenDates(date1='31 Jan 2022', date2='1 Jan 2022', word='seconds') {
+function durationBetweenDates(
+    date1='31 Jan 2022',
+    date2='1 Jan 2022',
+    dimension = 'seconds' 
+) {     
     const d1 = new Date(date1);
     const d2 = new Date(date2);
-    if (word == 'seconds'){
-        return Math.abs((d2.getTime() - d1.getTime())/1000) + ' ' + word;
+    const calcDuration = d2 - d1;
+    const unitDimension = {
+        'seconds' : calcDuration / 1000,
+        'minutes' : calcDuration / 60000,
+        'hours' : calcDuration / 3600000,
+        'days' : calcDuration / (3600000 * 24)
     }
-    if (word == 'days'){
-        return Math.abs(d2.getDate() - d1.getDate()) + ' ' + word;
-    }
-    if (word == 'hours'){
-        return Math.abs((d2.getTime() - d1.getTime())/3600000) + ' ' + word;
-    }
-    if (word == 'minutes'){
-        return Math.abs((d2.getTime() - d1.getTime())/60000) + ' ' + word;
-    }
-    console.log()
+    return console.log(Math.abs(unitDimension[dimension])+' '+dimension);
 }
-console.log(durationBetweenDates());
-console.log(durationBetweenDates('31 Jan 2022', '03 Feb 2021', 'days'));  
+
+durationBetweenDates();
+durationBetweenDates('31 Jan 2022', '03 Feb 2022', 'days');  
 
 //Task 2
 const priceData = { 
@@ -37,14 +37,17 @@ console.log(updatedPriceData);
     //Recursive function
 
 function recursiveOddSumTo(n){
+    if (n===0) {
+        return 0
+    }    
     if (n===1) {
         return 1
-    } if (n%2 == 0) {
+    }
+    if (n%2 == 0) {
         return recursiveOddSumTo(n-1);
-    } {
-        return n + recursiveOddSumTo(n-1);
     }
-    }
+    return n + recursiveOddSumTo(n-1);
+}
       
 console.log(recursiveOddSumTo(10))
   
