@@ -23,7 +23,7 @@ console.log(addThemAll(5,5,10));
 //Task 2 Uncurring
 
 function multiply(a) {
-    return function (b) {
+    return (b) => {
         return a*b;
     }
 }
@@ -67,24 +67,39 @@ console.log(movies.sort(byProperty('movieName', '>')));
 
 function byProperty(property, direction) {
     return (a, b)=>{
-        if (direction == '<') return a[property]-b[property];
-        if (a[property] > b[property]) return -1;
-        if (a[property] < b[property]) return 1;
-        return 0;
+        if (direction === '<'){
+            if (a[property] < b[property]) return -1;
+            return 0;
+        }
+        else if (a[property] > b[property]) return -1;
+        return 1;
     }
 }
 
 //Task 4
 
+// function detonatorTimer(delay) {
+//     if (delay > 0) {
+//         console.log(delay);
+//         delay--;
+//         setTimeout(detonatorTimer, 1000, delay);
+//     }
+//     else{
+//         console.log ('BOOM!');
+//     }
+// }
+
 function detonatorTimer(delay) {
     if (delay > 0) {
-        console.log(delay);
-        delay --;
-        setTimeout(detonatorTimer, 1000, delay);
-    }
-    else if (delay === 0) {
-        console.log ('BOOM!');
-    }
+        const myInterval =
+        setInterval ( function () {
+            if (delay > 0) {
+                return console.log(delay--);
+            }
+            else console.log('BOOM!');
+            return clearInterval(myInterval);
+        }, 1000);
+    } 
 }
 
 detonatorTimer(3);
@@ -126,13 +141,16 @@ setTimeout(securedUserInterests, 3000);
 // //Task 7
 
 function someFunction (a, b) {
-    return console.log(a + b); 
+    const myFunc = a + b;
+    console.log(myFunc); 
 }
 
 function slower(func, seconds) {
-    return () => {
+    return (a, b) => {
         console.log('Chill out, you will get you result in ' +seconds+ ' seconds');
-        setTimeout(func, seconds * 1000);
+        setTimeout(() => {
+            func(a, b)
+        }, seconds * 1000);
     }
 }
 
