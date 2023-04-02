@@ -61,33 +61,36 @@ const movies = [
     },
 ];
 
-console.log(movies.sort(byProperty('releaseYear', '>'))); 
-console.log(movies.sort(byProperty('runningTimeInMinutes', '<')));
-console.log(movies.sort(byProperty('movieName', '>')));
-
 function byProperty(property, direction) {
     return (a, b)=>{
         if (direction === '<'){
-            if (a[property] < b[property]) return -1;
-            return 0;
+            if (a[property] < b[property]) {
+                return -1;
+            } 
         }
-        else if (a[property] > b[property]) return -1;
+        else if (a[property] > b[property]) {
+            return -1;
+        }
         return 1;
     }
 }
 
+console.log(movies.sort(byProperty('releaseYear', '>'))); 
+console.log(movies.sort(byProperty('runningTimeInMinutes', '<')));
+console.log(movies.sort(byProperty('movieName', '>')));
+
 //Task 4
 
-// function detonatorTimer(delay) {
-//     if (delay > 0) {
-//         console.log(delay);
-//         delay--;
-//         setTimeout(detonatorTimer, 1000, delay);
-//     }
-//     else{
-//         console.log ('BOOM!');
-//     }
-// }
+function detonatorTimer(delay) {
+    if (delay > 0) {
+        console.log(delay);
+        delay--;
+        setTimeout(detonatorTimer, 1000, delay);
+    }
+    else{
+        console.log ('BOOM!');
+    }
+}
 
 function detonatorTimer(delay) {
     if (delay > 0) {
@@ -96,7 +99,9 @@ function detonatorTimer(delay) {
             if (delay > 0) {
                 return console.log(delay--);
             }
-            else console.log('BOOM!');
+            else {
+                console.log('BOOM!');
+            }
             return clearInterval(myInterval);
         }, 1000);
     } 
@@ -146,10 +151,10 @@ function someFunction (a, b) {
 }
 
 function slower(func, seconds) {
-    return (a, b) => {
+    return (...arr) => {
         console.log('Chill out, you will get you result in ' +seconds+ ' seconds');
         setTimeout(() => {
-            func(a, b)
+            func(...arr)
         }, seconds * 1000);
     }
 }
