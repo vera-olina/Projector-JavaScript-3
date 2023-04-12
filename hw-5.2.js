@@ -13,8 +13,8 @@ const checkboxListener = () => {
         text_message.classList.toggle('active');
         text_message.innerText= '' + new Date().toLocaleString();
         if (main.classList.contains('dark-mode')){
-            return localStorage.setItem('mode', 'dark')
-        } localStorage.setItem('mode', 'light')
+            localStorage.setItem('mode', 'dark')
+        }
     })
 }
 
