@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Sintony', sans-serif;
+}
+
+.checkbox {
+    display: none;
+    position: absolute;
+}
+
+.main-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    transition: background-color 0.2s linear;
+    gap: 16px;
+    color: #31353A;
+}
+
+.dark-mode {
+    background-color: #31353A;
+    color: white;
+}
+
+.action-button {
+    display: flex;
+    background-color: 180deg, #282B30 0%, #1E2124 100%;
+    box-shadow: inset 0px 3px 20px rgba(0, 0, 0, 0.15);
+    height: 68px;
+    width: 136px;
+    border-radius: 100px;
+    position: relative;
+}
+
+.action-button::before {
+    content: 'ON';
+    background-color: 180deg, #ECECEC 20.59%, #C9C9C9 85.35%;
+    height: 68px;
+    width: 68px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.35);
+    border-radius: 100px;
+    transition: all 0.2s linear;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.action-button.active::before {
+    content: 'OFF';
+    transform: translateX(100%);
+}
+
+.text-message::before {
+    content: 'Last turn off: ';
+}
+
+.text-message.active::before {
+    content: 'Last turn on: ';
+}
