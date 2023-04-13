@@ -1,9 +1,8 @@
 `use strict`;
 
-import {renderList} from './renderList.js';
-
 const submit = document.getElementById('submit');
 const output = document.getElementById('output');
+const outputList = document.getElementById('output-list');
 const calcSelector = document.getElementById('option-1');
 const radioButton = document.querySelectorAll('input[type=radio]');
 
@@ -33,7 +32,28 @@ const startApp = () => {
         }
     });
 
-    renderList(['01/01/2022 - 02/01/2023']);
+}
+
+function loadResults() {
+    let results;
+
+    if (localStorage.getItem('results') !== null) {
+        results = JSON.parse(localStorage.getItem('results'));
+    } else {
+        results = [];
+    }
+
+    results.forEach(function(result) {
+        const li = document.createElement('li');
+        li.className = 'output-item';
+        li.appendChild(document.createTextNode(result));
+
+        outputList.appendChild('li')
+    });
+}
+
+function calcResult(){
+
 }
 
 document.addEventListener('DOMContentLoaded', startApp);
