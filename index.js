@@ -1,8 +1,7 @@
 `use strict`;
 
 const submit = document.getElementById('submit');
-const output = document.getElementById('output');
-const outputList = document.getElementById('output-list');
+const output = document.getElementById('output');;
 const calcSelector = document.getElementById('option-1');
 const radioButton = document.querySelectorAll('input[type=radio]');
 

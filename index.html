@@ -13,23 +13,18 @@
 <body>
     <div class="container">
         <div class="inp-wrapper">
+            <h1>Time Span Calculator</h1>
             <div class="date-wrapper">
                 <label for="date-1">Start date: <input type="date" id="date-1"></label>
                 <label for="date-2">End date: <input type="date" id="date-2"></label>
             </div>
+            <div class="preset-wrapper">
+                Time interval presets:
+                <button class="preset-button">Week</button>
+                <button class="preset-button">Month</button>
+            </div>
             <div class="form-wrapper">
                 <form action="result.html" method="GET">
-                    <div class="selector-wrapper">
-                        Time interval presets:
-                        <label class="form-control">
-                            <input type="radio" name="radio">
-                            Week
-                        </label>
-                        <label class="form-control">
-                            <input type="radio" name="radio"/>
-                            Month
-                        </label>
-                    </div>
                     <div class="selector-wrapper">
                         <label class="selector-label" for="option-1">Calculate</label>
                         <select class="selector" id="option-1">
@@ -54,10 +49,19 @@
         </div>
         <button class="cta-button" id="submit" type="submit">Calculate</button>
         <div class="output-text-wrapper" id="output">Select the dates to get started</div>
-        <div class="table-wrapper">
-            <p><!-- <p>Date range</p> --></p>
-            <ol class="output-list" id="output-list">
-            </ol>
+        <div>
+            <table class="table-wrapper">
+                <tr>
+                    <th>Start date</th>
+                    <th>End date</th>
+                    <th>Result</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
         </div>
     </div>
 
