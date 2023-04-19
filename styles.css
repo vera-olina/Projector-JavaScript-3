@@ -88,10 +88,6 @@ input[type="date"] {
               linear-gradient(to right, rgba(255, 168, 0, 1), rgba(255, 107, 0, 1)) border-box;  
 }
 
-.preset-button-checked {
-    /* background-color: #FF4D00; */
-}
-
 .selector-wrapper{
     display: flex;
     flex-direction: column;
@@ -125,6 +121,16 @@ input[type="date"] {
 
 .cta-button:hover {
     box-shadow: 2.34584px 18.7668px 25.8043px -2.34584px rgba(223, 81, 21, 0.47);
+}
+
+.alert {
+    animation:  blink 1s linear 2;
+}
+
+@keyframes blink {
+    0%{opacity: 0;}
+    50%{opacity: .5;}
+    100%{opacity: 1;}
 }
 
 .output-text-wrapper {
