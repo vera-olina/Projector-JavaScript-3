@@ -66,7 +66,9 @@ input[type="date"] {
 
 .preset-wrapper {
     display: flex;
+    height: 30px;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 1em;
 }
 
@@ -76,7 +78,7 @@ input[type="date"] {
     padding: 0.2em 2em;
     border: 1px solid rgba(0, 0, 0, 0.25);
     cursor: pointer;
-    transition: all .1s linear;
+    transition: all .1s ease-out;
 }
 
 .preset-button:hover{
@@ -87,10 +89,7 @@ input[type="date"] {
 }
 
 .preset-button-checked {
-    color: #FFA800;
-    border: 2px solid transparent;
-    background: linear-gradient(white, white) padding-box,
-              linear-gradient(to right, rgba(255, 168, 0, 1), rgba(255, 107, 0, 1)) border-box;                 
+    /* background-color: #FF4D00; */
 }
 
 .selector-wrapper{
@@ -134,6 +133,7 @@ input[type="date"] {
 }
 
 .table-wrapper {
+    display: none;
     width: 100%;
     font-weight: 600;
 }
