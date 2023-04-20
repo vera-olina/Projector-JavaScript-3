@@ -5,8 +5,8 @@ class Universe {
         this.location='Seven Kingdoms';
         this.creator='George R. R. Martin';
     }
-    set = () => {
-        console.log('My homeland is ' + this.location + ' created by ' + this.creator)
+    setHomeland() {
+        return console.log('My homeland is ' + this.location + ' created by ' + this.creator)
     }
 }
 
@@ -16,11 +16,21 @@ class TheNorth extends Universe {
         this.logo = logo;
         this.leader = leader;
     }
+    isLeader(){
+        return this.isLeader? true : false;
+    }
     setLeader(leader) {
         if (['Eddard Stark', 'Ramsay Boltone'].includes(leader)) {
-            console.log(this.leader + 'is in the North of ' + this.location)
+            this.leader=leader;
         } else {
-            throw new Error('Leader is no in the North');
+            throw new Error('This Leader is not from the North');
+        }
+    }
+    greetLeader() {
+        if (this.leader) {
+            console.log(this.leader + ' is in the North of ' + this.location);
+        } else {
+            console.log('Leader is not in the North');
         }
     }
 
@@ -34,15 +44,15 @@ class Stark extends TheNorth {
         this.brotherhoor = brotherhood;
         this.#animal = animal;
     }
-    sayMotto = () => {
+    sayMotto() {
         console.log('Winter is coming')
     }
-    callLeader = () => {
+    callLeader() {
         console.log(this.leader + ', Lord of ' + this.castle)
     }
     setBrotherhood(brotherhood) {
         if(['Night`s Watch'].includes(brotherhood)) {
-            console.log(this.brotherhoor + 'protects the realms')
+            this.brotherhoor=brotherhood;
         } else {
             throw new Error('White Walkers attack!')
         }
@@ -59,13 +69,13 @@ class Lannister extends Universe {
         this.enemy=enemy;
         this.#phrase = ' A Lannister always pays their debts';
     }
-    yell = () => {
+    yell() {
         console.log('Hear me roar!')
     }
-    sayPhrase = () => {
+    sayPhrase() {
         console.log(this.#phrase)
     }
-    isEnemy() {
+    greetEnemy() {
         if (this.enemy) {
             console.log(this.realm + 'is enemy');
         } else {
@@ -83,18 +93,28 @@ class Bolton extends TheNorth {
         this.character='cruel';
         this.#country=country;
     }
-    isBastard() {
+    greetBastard() {
         if (this.bastard) {
             console.log(this.leader + ' is bastard');
         } else {
             console.log(this.leader + ' is not bastard');
         }
     }
-    getCharakter = () => {
+    getCharakter() {
         console.log(this.leader + ' is ' + this.character);
     }
-    getWeapon(weapon) {
+    isWeapon(){
+        return this.weapon? true : false;
+    }
+    setWeapon(weapon) {
         if(['sword', 'crossbow', 'dagger'].includes(weapon)) {
+            this.weapon=weapon;
+        } else {
+            throw new Error ('This is not a weapon!')
+        }
+    }
+    attack() {
+        if (this.isWeapon()) {
             alert('Attack!!');
         } console.log (this.leader + ' is disarmed');
     }
@@ -111,13 +131,13 @@ class Greyjoy extends Universe {
         this.age=age;
         this.nature=nature;
     }
-    attack = () => {
+    houseHabitat() {
         console.log('House Greyjoy attacks from the ' + this.nature.toLowerCase())
     }
-    howOld = () => {
+    howOld() {
         console.log(this.prince + ' is' + this.age + ' years old')
     }
-    getSigil = () => {
+    getSigil() {
         console.log('House Greyjoy`s sigil is traditionally a ' + this.sigil)
     }
 
