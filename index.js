@@ -16,7 +16,7 @@ function getDate2Week() {
         return d2.value = new Date(new Date(d1.value).setDate(new Date(d1.value).getDate() + 7)).toISOString().split('T')[0];
     } else {
         output.innerHTML = 'Please select Start Date';
-        output.classList.add('alert');
+        // output.classList.add('alert');
     }
 }
 
@@ -25,7 +25,7 @@ function getDate2Month() {
         return d2.value = new Date(new Date(d1.value).setMonth(new Date(d1.value).getMonth() + 1)).toISOString().split('T')[0];
     } else {
         output.innerHTML = 'Please select Start Date';
-        output.classList.add('alert')
+        // output.classList.add('alert')
     }
 }
 
@@ -50,15 +50,21 @@ function calculateSpan() {
 
     } else {
         output.innerHTML = 'Please select a valid date to start';
-        output.classList.add('alert')
+        // output.classList.add('alert')
     }
 }
 
 calcSelector.addEventListener('click', determineDays);
 
-function determineDays() {
-
-}
+// function determineDays() {
+//     const calcSelectorValue = calcSelector.options[calcSelector.selectedIndex].value;
+//     const nWeekdays = Math.floor( (date2.getDay()+calcDuration) / 7 )
+//     determine = {
+//         1:
+//         2:
+//         3: 2*nWeekdays + (date2.getDay()==0) - (date1.getDay()==6);
+//     }
+// }
 
 // function loadResults() {
 //     let results;
