@@ -66,7 +66,7 @@ input[type="date"] {
 
 .preset-wrapper {
     display: flex;
-    height: 30px;
+    gap: 12px;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1em;
@@ -125,6 +125,7 @@ input[type="date"] {
 
 .alert {
     animation:  blink 1s linear 2;
+    color:#FF4D00;
 }
 
 @keyframes blink {
@@ -136,22 +137,54 @@ input[type="date"] {
 .output-text-wrapper {
     text-align: center;
     margin-bottom: 2em;
+    transition: all .35s ease-in;
 }
 
 .table-wrapper {
     display: none;
     width: 100%;
-    font-weight: 600;
 }
 
 td, th {
     text-align: center;
-    width: 4rem;
     height: 2rem;
 }
 
 th {
     font-weight: 600;
+}
+
+.delete {
+    position: relative;
+}
+
+.delete-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0.3;
+}
+
+.delete-button:before, .delete-button:after {
+    position: absolute;
+    right: 50%;
+    bottom: 25%;
+    content: ' ';
+    height: 16px;
+    width: 1.5px;
+    background-color: #474C59;
+}
+
+.delete-button:before {
+    transform: rotate(45deg);
+}
+
+.delete-button:after {
+    transform: rotate(-45deg);
+}
+
+.delete-button:hover {
+    opacity: 1;
 }
 
 @media screen and (max-width:768px) {
@@ -162,10 +195,19 @@ th {
         flex-direction: column;
         align-items: center;
     }
+    .preset-wrapper {
+        flex-wrap: wrap;
+    }
+    .preset-wrapper {
+        justify-content: flex-start;
+    }
+    .preset-wrapper > p {
+        flex: 1 0 100%;
+    }
 }
 
 @media screen and (max-width:600px) {
     .container {
         width: 100%;
-    } 
+    }
 }
