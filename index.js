@@ -8,6 +8,7 @@ const unit = document.getElementById('option-2');
 const d1 = document.getElementById('date-1');
 const d2 = document.getElementById('date-2');
 const table = document.getElementById('table');
+const deleteButton = document.getElementsByClassName('delete-button');
 
 const startApp = () => {
 
@@ -20,7 +21,7 @@ const startApp = () => {
         } else {
             output.innerHTML = 'Please select Start Date';
             output.classList.add('alert');
-            setTimeout(()=>{output.classList.remove('alert')}, 1000)
+            setTimeout(()=>{output.classList.remove('alert')}, 900)
         }
     }
 
@@ -30,7 +31,7 @@ const startApp = () => {
         } else {
             output.innerHTML = 'Please select Start Date';
             output.classList.add('alert');
-            setTimeout(()=>{output.classList.remove('alert')}, 1000)
+            setTimeout(()=>{output.classList.remove('alert')}, 900)
         }
     }
 
@@ -53,9 +54,6 @@ const startApp = () => {
         
             output.innerHTML = 'Difference between the two dates is ' + unitDimension[unitValue] + ' ' + unitText;
 
-            const rowCapacity = table.rows.length;
-            if (rowCapacity > 10) return //table.deleteRow(-1);
-
             const row = table.insertRow(1);
             const cell1 = row.insertCell(0);
             const cell2 = row.insertCell(1);
@@ -71,14 +69,29 @@ const startApp = () => {
         } else {
             output.innerHTML = 'Please select a valid date to start';
             output.classList.add('alert');
-            setTimeout(()=>{output.classList.remove('alert')}, 1000)
+            setTimeout(()=>{output.classList.remove('alert')}, 900)
         }
     }
+
+    function rowCapacityFunc() {
+        const rowCapacity = table.rows.length;
+        if (rowCapacity > 2) return //table.deleteRow(-1);
+    }
+
+    // deleteButton.addEventListener('click', deleteRow);
+
+    // function deleteRow() {
+    //     return
+    // }
 
     calcSelector.addEventListener('click', determineDays);
 
     function determineDays() {
+        // var ndays = 1 + Math.round((d1.getTime()-d0.getTime())/(24*3600*1000));
+        // var nsaturdays = Math.floor( (d0.getDay()+ndays) / 7 );
+        // return 2*nsaturdays + (d0.getDay()==0) - (d1.getDay()==6);
     }
+
 }
 
 document.addEventListener('DOMContentLoaded', startApp);
