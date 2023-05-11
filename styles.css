@@ -1,0 +1,198 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    background-color: #CACACA;
+    font-family: 'Comic Neue', cursive;
+    color: #151515;
+}
+
+ul {
+    list-style: none;
+}
+
+.remove-all-button {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid #151515;
+    position: fixed;
+    right: 4em;
+    top: 2em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease-out;
+}
+
+.remove-all-button:hover {
+    background-color: #151515;
+    color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    align-items: center;
+    margin: 5rem;
+}
+
+.form-wrapper {
+    max-width: 50%;
+}
+
+.form-heading {
+    font-weight: 400;
+    font-size: 64px;
+    letter-spacing: -4px;
+    margin-bottom: 24px;
+}
+
+.form-paragraph {
+    font-size: 24px;
+    margin-bottom: 44px;
+}
+
+.input-container {
+    display: flex;
+    border: 1px solid #151515;
+    margin-bottom: 16px;
+}
+
+.input-wrapper {
+    padding: 12px 44px 12px 12px;
+    width: 100%;
+    border: none;
+}
+
+input::placeholder{
+    font-family: 'Comic Neue', cursive;
+    font-size: 16px;
+}
+
+.submit-button {
+    font-family: 'Comic Neue', cursive;
+    background: #151515;
+    color: rgba(255, 255, 255, 1);
+    padding: 12px 44px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.5s ease-in-out;
+}
+
+.submit-button:hover {
+    letter-spacing: 4px;
+}
+
+.item-img img {
+    object-fit: cover;
+    height: auto;
+    max-width: 100%;
+}
+
+.todo-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo-list li:not(:last-child) {
+    margin-bottom: 12px;
+}
+
+.form-button-holder {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    justify-content: end;
+}
+.form-button-holder a {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-button, .edit-button, .checkbox {
+    cursor: pointer;
+}
+
+.form-check {
+    display: flex;
+    position: relative;
+}
+
+.form-check-label {
+    margin-left: 2em;
+}
+
+.checkbox {
+    position: absolute;
+    z-index: 99;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    background-color: white;
+    height: 16px;
+    width: 16px;
+    border-radius: 2px;
+    border: 1px solid #151515;
+    cursor: pointer;
+}
+
+input[type=checkbox]:checked ~ .checkmark {
+    background-color: #151515;
+}
+
+.checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 50%;
+    top: 40%;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 1.5px 1.5px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+input[type=checkbox]:checked ~ .checkmark::after {
+    display: block;
+}
+
+@media screen and (max-width:768px) {
+    .container {
+        flex-direction: column;
+        margin: 10% 1em;
+    }
+    .form-wrapper {
+        max-width: 80%;
+    }
+    .form-heading {
+        font-size: 28px;
+        letter-spacing: -1.4px;
+    }
+    .form-paragraph {
+        font-size: 18px;
+        margin-bottom: 24;
+    }
+}
