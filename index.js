@@ -8,6 +8,7 @@ import { formChangeListener } from "./formChangeListener.js";
 import { byName } from "./filters.js";
 import { removeAllTasks } from "./removeAllTasks.js";
 import { listEditListener } from "./listEditListener.js";
+import { checkboxListener } from "./checkboxListener.js";
 
 const startApp = () => {
 
@@ -45,6 +46,8 @@ const startApp = () => {
     removeAllTasks(taskList);
 
     listEditListener();
+
+    checkboxListener();
 
 };
 
