@@ -45,9 +45,9 @@ const startApp = () => {
 
     removeAllTasks(taskList);
 
-    listEditListener();
+    listEditListener(taskList); //Fix it
 
-    checkboxListener();
+    checkboxListener(taskList);
 
 };
 

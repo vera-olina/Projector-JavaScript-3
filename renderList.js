@@ -9,9 +9,9 @@ export const renderList = (taskList) => {
         taskElement.innerHTML = 
             `<div class="form-check">
                 <label class="form-check-label">
-                    <input class="checkbox" type="checkbox" id="checkbox">
+                    <input class="checkbox" type="checkbox" id="checkbox" data-completed="${task.completed}">
                     <span class="checkmark"></span>
-                    <p id="form-text">${task.name}<p>
+                    <p class="form-text" id="form-text">${task.name}<p>
                     <i class="input-helper"></i>
                 </label>
             </div>
