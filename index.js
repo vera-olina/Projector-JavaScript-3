@@ -116,6 +116,45 @@ const startApp = () => {
             output.classList.add('alert');
             setTimeout(()=>{output.classList.remove('alert')}, 900)
         }
+
+        const ls = () => {
+            const data = [];
+    
+            for ( let i = 0; i < table.rows.length; i++) {
+                const row = table.rows[i];
+                const rowData = [];
+    
+                for (let j = 0; j < row.cells.length; j++) {
+                    const cellData = row.cells[j].innerHTML;
+                    rowData.push(cellData);
+                }
+    
+                data.push(rowData);
+            }
+    
+            const dataString = JSON.stringify(data);
+            localStorage.setItem('tableData', dataString);
+        }
+    
+        ls();
+    }
+
+    window.onload = function() {
+        const storedData = localStorage.getItem('tableData');
+
+        if (storedData) {
+            const parsedData = JSON.parse(storedData);
+
+            for (let i = 0; i < parsedData.length; i++) {
+                const row = table.insertRow();
+                const rowData = parsedData[i];
+
+                for (let j = 0; j < rowData.length; j++) {
+                    const cell = row.insertCell();
+                    cell.innerHTML = rowData[j];
+                }
+            }
+        }
     }
 }
 
