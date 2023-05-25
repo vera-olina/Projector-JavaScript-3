@@ -189,7 +189,8 @@ th {
 
 @media screen and (max-width:768px) {
     .container {
-        width: 50vh;
+        width: 100%;
+        min-width: 340px;
     }
     .date-wrapper {
         flex-direction: column;
@@ -203,11 +204,5 @@ th {
     }
     .preset-wrapper > p {
         flex: 1 0 100%;
-    }
-}
-
-@media screen and (max-width:600px) {
-    .container {
-        width: 100%;
     }
 }
