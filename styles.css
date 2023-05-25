@@ -1,0 +1,208 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+}
+
+body {
+    color: #474C59;
+    height: 100vh;
+    background-color: linear-gradient(180deg, #F1F7FF 0%, #EDF2F9 100%);
+}
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 1em;
+}
+
+ol {
+    list-style: none;
+}
+
+ol li{
+    font-weight: 200;
+}
+
+.container {
+    background-color: linear-gradient(142deg, rgba(254, 248, 255, 0.56) 1%, rgba(254, 248, 255, 0.4) 100%);
+    box-shadow: inset -11.7292px -11.7292px 35.1877px rgba(0, 0, 0, 0.12), inset 11.7292px 11.7292px 28.1501px #FFFFFF;
+    padding: 52px;
+    border-radius: 6px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+.inp-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.date-wrapper {
+    display: flex;
+    justify-content: space-around;
+    gap: 1em;
+    margin-bottom: 1em;
+}
+
+.date-wrapper label {
+    font-weight: 600;
+}
+
+input[type="date"] {
+    border: none;
+    outline: none;
+    padding: 1em 0;
+    font-weight: 200;
+}
+
+::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+
+.preset-wrapper {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.preset-button {
+    background-color: transparent;
+    border-radius: 6px;
+    padding: 0.2em 2em;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all .1s ease-out;
+}
+
+.preset-button:hover{
+    color: #FFA800;
+    border: 2px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+              linear-gradient(to right, rgba(255, 168, 0, 1), rgba(255, 107, 0, 1)) border-box;  
+}
+
+.selector-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 1em;
+}
+
+.selector {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    padding-bottom: 8px;
+    color: rgba(196, 196, 196, 0.7);
+    cursor: pointer;
+}
+
+.cta-button {
+    display: block;
+    margin: 1em auto 2em auto;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    background: radial-gradient(82.86% 82.86% at 28.57% 17.14%, #FFA800 0%, #FF4D00 100%);
+    color: #FFFFFF;
+    padding: 12px 32px;
+    line-height: 24px;
+    transition: all .35s ease;
+    font-weight: 600;
+}
+
+.cta-button:hover {
+    box-shadow: 2.34584px 18.7668px 25.8043px -2.34584px rgba(223, 81, 21, 0.47);
+}
+
+.alert {
+    animation:  blink 1s linear 2;
+    color:#FF4D00;
+}
+
+@keyframes blink {
+    0%{opacity: 0;}
+    50%{opacity: .5;}
+    100%{opacity: 1;}
+}
+
+.output-text-wrapper {
+    text-align: center;
+    margin-bottom: 2em;
+    transition: all .35s ease-in;
+}
+
+.table-wrapper {
+    display: none;
+    width: 100%;
+}
+
+td, th {
+    text-align: center;
+    height: 2rem;
+}
+
+th {
+    font-weight: 600;
+}
+
+.delete {
+    position: relative;
+}
+
+.delete-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0.3;
+}
+
+.delete-button:before, .delete-button:after {
+    position: absolute;
+    right: 50%;
+    bottom: 25%;
+    content: ' ';
+    height: 16px;
+    width: 1.5px;
+    background-color: #474C59;
+}
+
+.delete-button:before {
+    transform: rotate(45deg);
+}
+
+.delete-button:after {
+    transform: rotate(-45deg);
+}
+
+.delete-button:hover {
+    opacity: 1;
+}
+
+@media screen and (max-width:768px) {
+    .container {
+        width: 100%;
+        min-width: 340px;
+    }
+    .date-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .preset-wrapper {
+        flex-wrap: wrap;
+    }
+    .preset-wrapper {
+        justify-content: flex-start;
+    }
+    .preset-wrapper > p {
+        flex: 1 0 100%;
+    }
+}
